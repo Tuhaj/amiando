@@ -29,6 +29,20 @@ module Amiando
     end
 
     ##
+    # Apply discount code
+    #
+    # @params payment_id, discount_code
+    #
+    # @return [Payment]
+
+
+    def self.apply_discount_code(payment_id, discount_code)
+      object = Boolean.new('success')
+      post object, "api/payment/#{payment_id}/applyDiscountCode?discountCode=#{discount_code}"
+      object
+    end
+
+    ##
     # Set ticket count
     #
     # @params payment_id
